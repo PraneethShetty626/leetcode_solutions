@@ -10,9 +10,14 @@ public class Main {
         }
 
         //
-        Problem11 p=new Problem11();
-        System.out.println(p.max_two(height));
-        System.out.println(p.maxArea(height));
+        // Problem11 p=new Problem11();
+        // System.out.println(p.max_two(height));
+        // System.out.println(p.maxArea(height));
+        //
+
+        Problem15 p= new Problem15();
+
+        System.out.println(p.threeSum(height));
 
 
     }
