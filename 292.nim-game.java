@@ -7,7 +7,10 @@
 // @lc code=start
 class Solution {
     public boolean canWinNim(int n) {
-        return canWin(n, true, 1) || canWin(n, true, 2) || canWin(n, true, 3);
+        // return canWin(n, true, 1) || canWin(n, true, 2) || canWin(n, true, 3);
+        
+        return n % 4 != 0;
+
     }
 
     private boolean canWin(int n , boolean player, int steps) {
