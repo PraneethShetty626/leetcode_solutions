@@ -40,6 +40,29 @@ class Solution {
 
         return max;
     }
+
+    // alternate() {
+        // Map<Character, Integer> map = new HashMap<>();
+
+        // int max = 0 ;
+
+        // int i = 0 ;
+
+        // for(int j = 0 ; j < s.length() ; j++) {
+        //     char current = s.charAt(j);
+
+        //     if(map.containsKey(current)) {
+        //         i = Math.max(map.get(current) + 1, i); 
+        //     }
+
+        //     max = Math.max(max, j - i + 1);
+
+        //     map.put(current, j);
+            
+        // }
+
+        // return max;}
+        
 }
 // @lc code=end
 
