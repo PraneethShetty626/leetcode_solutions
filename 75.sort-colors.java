@@ -7,20 +7,16 @@
 // @lc code=start
 class Solution {
     public void sortColors(int[] nums) {
-        int[] res = new int[nums.length];
+        int cindex = 0;
 
-        int c = 0 ;
-
-        for(int i = 0; i < 3 ; i++) {
-            for(int j = 0 ; j < nums.length ; j++){
-                if(nums[j] == i) {
-                    res[c++] = nums[j];
+        for(int i =0 ; i < 2 ; i++) {
+            for(int j = cindex ; j < nums.length ; j++) {
+                if(nums[j] == i){
+                    int temp = nums[j];
+                    nums[j] = nums[cindex];
+                    nums[cindex++] = temp;
                 }
             }
-        }
-
-        for(int i = 0; i < nums.length ; i++) {
-            nums[i] = res[i];
         }
     }
 }
