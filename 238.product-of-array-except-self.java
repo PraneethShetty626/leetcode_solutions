@@ -7,34 +7,31 @@
 // @lc code=start
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int[] res = new int[nums.length];
-        int prod = 1;
-        int isZero = 0;
-        for(int i = 0; i < nums.length ; i++){
-            if(nums[i] == 0) {
-                isZero++;
-            }
-            else {
-                prod *= nums[i];
-            }
-            res[i]=nums[i];
+        int[] prefix = new int[nums.length];
+        int[] suffix = new int[nums.length];
+
+
+        prefix[0] = 1;
+
+        for(int i = 1; i < nums.length ; i++) {
+            prefix[i] = nums[i - 1] * prefix[i - 1];
         }
 
-        for(int i =0 ; i < res.length ; i++) {
-            if (res[i] != 0) {
-                if(isZero > 0) res[i] = 0;
-                else res[i] = prod / res[i];
-            }
-            else {
-                if(isZero == 1)
-                    res[i] = prod;
-                else
-                    res[i] = 0;
-            }
+        
+        suffix[nums.length - 1] = 1;
+
+
+        for(int i = nums.length - 2; i >= 0 ; i--) {
+            suffix[i] = nums[i + 1] * suffix[i + 1];
+
         }
 
+        for(int i =0 ; i < nums.length ; i++){
+            nums[i] = prefix[i] * suffix[i];
+        }
 
-        return res;
+        return nums;
+
     }
 
 
