@@ -49,7 +49,7 @@
 // @lc code=start
 class Solution {
     public void rotate(int[][] matrix) {
-               int n = matrix.length;
+        int n = matrix.length;
 
         // Step 1: Transpose the matrix
         for (int i = 0; i < n; i++) {
@@ -71,4 +71,3 @@ class Solution {
     }
 }
 // @lc code=end
-
