@@ -58,40 +58,30 @@
 // @lc code=start
 class Solution {
     public int reversePairs(int[] nums) {
-        int max = Integer.MIN_VALUE;
-        int index = 0;
-        int count = 0;
-        for (int i = 0; i < nums.length;) {
-            if (nums[i] >= max) {
-                if (nums[i] == max && nums[i] < 0) {
-                    count++;
-                }
+        return getCount(nums, 0, nums.length - 1);
+    }
 
-                max = nums[i];
-                index = i++;
+    public int getCount(int[] nums, int start, int end) {
+        if (start == end)
+            return 0;
 
-            } else if ((2 * nums[i]) < max) {
-                count++;
-                int temp = nums[i];
-                nums[i] = nums[index];
-                nums[index] = temp;
-                i = 0;
-                max = Integer.MIN_VALUE;
-                index = 0;
-            } else if (nums[i] < max) {
-                int temp = nums[i];
-                nums[i] = nums[index];
-                nums[index] = temp;
-                i = 0;
-                max = Integer.MIN_VALUE;
-            } else {
-                i++;
+        int middle = start + (end - start) / 2;
+
+        int leftCount = getCount(nums, start, middle);
+        int rightCount = getCount(nums, middle + 1, end);
+
+        int c = 0;
+
+        for (int i = start; i <= middle; i++) {
+            for (int j = middle + 1; j <= end; j++) {
+                if ((long) nums[i] > 2L * nums[j])
+                    c++;
             }
-
         }
 
-        return count;
+        return c + leftCount + rightCount;
 
     }
+
 }
 // @lc code=end
